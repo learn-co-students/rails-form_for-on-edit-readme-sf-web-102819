@@ -761,3 +761,38 @@ Processing by PostsController#edit as HTML
   [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 4]]
   Rendered posts/edit.html.erb within layouts/application (16.0ms)
 Completed 200 OK in 347ms (Views: 318.0ms | ActiveRecord: 0.4ms)
+Started GET "/posts" for ::1 at 2019-11-23 15:50:25 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 401ms (Views: 392.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/new" for ::1 at 2019-11-23 15:50:39 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (29.4ms)
+Completed 200 OK in 52ms (Views: 48.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for ::1 at 2019-11-23 15:50:46 -0800
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3Pdp/9t743NzWidbpdSb+Ns+FkJskOCbCUGoWAgHSv7g0Lq2QanTNrOtlGIRJz4LLPG6e0M4gBxfSkwVhBP1rg==", "post"=>{"title"=>"yoyo", "description"=>"me"}, "commit"=>"Create Post"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "posts" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2019-11-23 23:50:46.147105"], ["updated_at", "2019-11-23 23:50:46.147105"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/5
+Completed 302 Found in 5ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/posts/5" for ::1 at 2019-11-23 15:50:46 -0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 38ms (Views: 29.8ms | ActiveRecord: 0.3ms)
+
+
